@@ -18,3 +18,12 @@
 // numbers.map((number) => number * 2);
 
 // setTimeout(() => console.log("Hello"), 1000);
+
+// // Functional Composition
+// let input = "   JavaScript   ";
+
+// const trim = (str) => str.trim();
+// const wrapInDiv = (str) => `<div>${str}</div>`;
+// const toLowerCase = (str) => str.toLowerCase();
+
+// console.log(wrapInDiv(toLowerCase(trim(input))));
