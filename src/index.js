@@ -1,5 +1,6 @@
 import { compose, pipe } from "lodash/fp";
 import { Map } from "immutable";
+import { produce } from "immer";
 
 //// Functions are First-Class Citizens
 // function sayHello() {
@@ -88,3 +89,18 @@ import { Map } from "immutable";
 // book = publish(book);
 
 // console.log(book.toJS());
+
+// // Immer
+// // allows you to write code as if you are mutating original object, but object does not get mutated
+// let book = { title: "Harry Potter" };
+
+// const publish = function (book) {
+//   return produce(book, (draftBook) => {
+//     draftBook.isPublished = true;
+//   });
+// };
+
+// let updated = publish(book);
+
+// console.log("book", book);
+// console.log("updated", updated);
