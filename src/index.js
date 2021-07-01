@@ -25,14 +25,19 @@ import { compose, pipe } from "lodash/fp";
 let input = "   JavaScript   ";
 
 const trim = (str) => str.trim();
-const wrapInDiv = (str) => `<div>${str}</div>`;
+// Combining function...
+// const wrapInDiv = (str) => `<div>${str}</div>`;
+// const wrapInSpan = (str) => `<span>${str}</span>`;
+// const wrap = (type, str) => `<${type}>${str}</${type}>`;
+// Currying
+const wrap = (type) => (str) => `<${type}>${str}</${type}>`;
 const toLowerCase = (str) => str.toLowerCase();
 
-console.log("classic way", wrapInDiv(toLowerCase(trim(input))));
+console.log("classic way", wrap(toLowerCase(trim(input))));
 
 // Composing and Piping ... using Lodash
-const composeTransform = compose(wrapInDiv, toLowerCase, trim); // conducted right to left
+const composeTransform = compose(wrap("span"), toLowerCase, trim); // conducted right to left
 console.log("composed", composeTransform(input));
 
-const pipeTransform = pipe(trim, toLowerCase, wrapInDiv); // conducted left to right
+const pipeTransform = pipe(trim, toLowerCase, wrap("div")); // conducted left to right
 console.log("piped", pipeTransform(input));
