@@ -1,4 +1,5 @@
 import { compose, pipe } from "lodash/fp";
+import { Map } from "immutable";
 
 //// Functions are First-Class Citizens
 // function sayHello() {
@@ -42,21 +43,48 @@ import { compose, pipe } from "lodash/fp";
 // const pipeTransform = pipe(trim, toLowerCase, wrap("div")); // conducted left to right
 // console.log("piped", pipeTransform(input));
 
-// Updating Objects
-const person = { name: "John", address: { city: "New York", country: "USA" } };
-console.log(person);
+// // Updating Objects
+// const person = { name: "John", address: { city: "New York", country: "USA" } };
+// console.log(person);
 
-// Update technique 1 - Object.assign()
-let person2 = Object.assign({}, person, { name: "Max", age: 24 });
-console.log(person2);
+// // Update technique 1 - Object.assign()
+// let person2 = Object.assign({}, person, { name: "Max", age: 24 });
+// console.log(person2);
 
-// Update technique 2 - Spread operator ...
-let person3 = {
-  ...person,
-  name: "Lebron",
-  address: {
-    ...person.address,
-    city: "San Francisco",
-  },
-};
-console.log(person3);
+// // Update technique 2 - Spread operator ...
+// let person3 = {
+//   ...person,
+//   name: "Lebron",
+//   address: {
+//     ...person.address,
+//     city: "San Francisco",
+//   },
+// };
+// console.log(person3);
+
+// // Updating Arrays
+// let numbers = [1, 2, 3];
+
+// // Adding at specific index
+// let index = numbers.indexOf(2);
+// const added = [...numbers.slice(0, index), 4, ...numbers.slice(index, 3)];
+// console.log("added", added);
+
+// // Removing
+// let removed = numbers.filter((number) => number !== 2);
+// console.log("removed", removed);
+
+// // Updating
+// let updated = numbers.map((number) => (number === 2 ? 20 : number));
+// console.log("updated", updated);
+
+// // Immutable.js
+// let book = Map({ title: "Harry Potter" });
+
+// const publish = function (book) {
+//   return book.set("isPublished", true);
+// };
+
+// book = publish(book);
+
+// console.log(book.toJS());
